@@ -18,6 +18,9 @@
 !/tmp/pids/
 !/tmp/pids/.keep
 
+# ignore .env file used to load environment variables
+.env
+
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
