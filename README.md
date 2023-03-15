@@ -1,27 +1,13 @@
 # Spam alert API
+A production-ready endpoint that accepts a JSON payload and sends an alert to a Slack channel if the payload is spam.
 
-## Requirements
+## Setup
+- Create your own Incoming Webhook on Slack API. Follow [these instructions](https://api.slack.com/messaging/webhooks).
 
-You will need the following packages to get spam-alert-api to work:
-
-- Ruby
-
+- Clone the repo and `cd` into it
   ```shell
-  brew install rbenv
-  rbenv init
-  rbenv install
+  git clone https://github.com/FawazFarid/spam-alert-api.git && cd spam-alert-api
   ```
-
-- Bundler
-  ```shell
-  gem install bundler
-  ```
-
-## Installation
-
-### Setup
-
-- Clone the repo
 
 - Install required gems
 
@@ -29,7 +15,7 @@ You will need the following packages to get spam-alert-api to work:
   bundle install
   ```
 
-- Copy the contents of `.env.example` into `.env` file and edit the Slack channel name and webhook URL env variables.
+- Copy the contents of `.env.example` into `.env` file and edit the `SLACK_WEBHOOK_URL` env variable to point to your Slack your own webhook URL.
 
   ```shell
   cp .env.example .env
@@ -59,7 +45,7 @@ curl -X POST \
     "Description": "The message was delivered, but was either blocked by the user, or classified as spam, bulk mail, or had rejected content.",
     "Email": "zaphod@example.com",
     "From": "notifications@honeybadger.io",
-    "BouncedAt": "2023-02-27T21:41:30Z",
+    "BouncedAt": "2023-02-27T21:41:30Z"
   }'
 ```
 
@@ -79,7 +65,7 @@ curl -X POST \
     "Description": "The server was unable to deliver your message (ex: unknown user, mailbox not found).",
     "Email": "arthur@example.com",
     "From": "notifications@honeybadger.io",
-    "BouncedAt": "2019-11-05T16:33:54.9070259Z",
+    "BouncedAt": "2019-11-05T16:33:54.9070259Z"
 }'
 ```
 
